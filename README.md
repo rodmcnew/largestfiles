@@ -5,7 +5,7 @@ Usage example:
 ./largestfiles /Applications/
 ```
 Output example:
-`
+```
 Looking in /Applications/
 Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.032s
 
@@ -54,4 +54,4 @@ Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.03
  81.3 MB  /Applications/Microsoft PowerPoint.app/Contents/SharedSupport/Open XML for Excel.app/Contents/MacOS/Open XML for Excel
  73.1 MB  /Applications/Microsoft Word.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
  73.1 MB  /Applications/Microsoft Outlook.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
- `
+ ```
