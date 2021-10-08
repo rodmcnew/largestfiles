@@ -2,7 +2,7 @@
 
 Usage example:
 ```bash
-Rodneys-MacBook-Pro-2:largestfiles rmcnew$ go run . /Applications/
+largestfiles rmcnew$ go run . /Applications/
 Looking in /Applications/
 Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.032s
 
