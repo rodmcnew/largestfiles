@@ -56,7 +56,7 @@ Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.03
  73.1 MB  /Applications/Microsoft Outlook.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
  ```
 
-Examples with extra options
+Usage examples with extra options
 ```bash
 ./largestfiles -c=50 /Applications/ # Show 50 results
 
