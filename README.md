@@ -2,7 +2,7 @@ This is a CLI program that will show you the largest files and directories on yo
 
 Usage example:
 ```bash
-go run . /Applications/
+./largestfiles /Applications/
 ```
 Output example:
 ```bash
