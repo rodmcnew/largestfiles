@@ -2,7 +2,7 @@ This is a CLI program that will show you the largest files and directories on yo
 
 Usage example:
 ```bash
-./largestfiles /Applications/
+largestfiles /Applications/
 ```
 Output example:
 ```
@@ -58,7 +58,7 @@ Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.03
 
 Usage examples with extra options:
 ```bash
-./largestfiles -c=50 /Applications/ # Show 50 results
+largestfiles -c=50 /Applications/ # Show 50 results
 
-./largestfiles -i /Applications/ # Ignore file system errors such as "permission denied" and keep going
+largestfiles -i /Applications/ # Ignore file system errors such as "permission denied" and keep going
 ```
