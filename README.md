@@ -55,3 +55,10 @@ Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.03
  73.1 MB  /Applications/Microsoft Word.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
  73.1 MB  /Applications/Microsoft Outlook.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
  ```
+
+Examples with extra options
+```bash
+./largestfiles -c=50 /Applications/ # Show 50 results
+
+./largestfiles -i /Applications/ # Ignore file system errors such as "permission denied" and keep going
+```
