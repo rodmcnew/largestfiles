@@ -3,6 +3,9 @@ This is a CLI program that will show you the largest files and directories on yo
 Usage example:
 ```bash
 largestfiles rmcnew$ go run . /Applications/
+```
+Output example:
+```bash
 Looking in /Applications/
 Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.032s
 
