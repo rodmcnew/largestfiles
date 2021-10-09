@@ -10,6 +10,7 @@ import (
 	"github.com/rodmcnew/largestfiles/third_party/bytecount"
 )
 
+// Controls how often we display a status update to the user while scanning the file system
 const printProgressUpdateInterval = time.Second / 2
 
 func main() {
