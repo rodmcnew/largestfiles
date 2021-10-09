@@ -13,7 +13,7 @@ Output example:
 
 ```
 Looking in /Applications
-Found 14.6 GB of usage in 190,955 files and 16,428 directories. Scanning took 2.224s
+Found 14.2 GB of usage in 189,648 files and 16,196 directories. Scanning took 2.301s
 
 - - - - - - - - - - Largest Directories - - - - - - - - - -
     Size  Files  Path
@@ -35,8 +35,8 @@ Found 14.6 GB of usage in 190,955 files and 16,428 directories. Scanning took 2.
 131.4 MB      1  /Applications/Microsoft Teams.app/Contents/Frameworks/Electron Framework.framework/Versions/A
 129.7 MB      1  /Applications/Visual Studio Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A
 127.5 MB    148  /Applications/krita.app/Contents/PlugIns
-117.1 MB      1  /Applications/Signal.app/Contents/Frameworks/Electron Framework.framework/Versions/A
-110.2 MB      3  /Applications/Signal.app/Contents/Resources
+109.0 MB      1  /Applications/Microsoft Excel.app/Contents/MacOS
+107.3 MB      2  /Applications/Microsoft Word.app/Contents/SharedSupport/Proofing Tools/FinnishGrammar.proofingtool/Contents/SharedSupport/FinnishGrammar.lexicon/Contents/Resources
 
 - - - - - - - - - - - Largest Files - - - - - - - - - - - -
     Size  Path
@@ -48,8 +48,6 @@ Found 14.6 GB of usage in 190,955 files and 16,428 directories. Scanning took 2.
 140.6 MB  /Applications/Slack.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework
 131.4 MB  /Applications/Microsoft Teams.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework
 129.7 MB  /Applications/Visual Studio Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework
-117.1 MB  /Applications/Signal.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework
-109.9 MB  /Applications/Signal.app/Contents/Resources/app.asar
 109.0 MB  /Applications/Microsoft Excel.app/Contents/MacOS/Microsoft Excel
 107.3 MB  /Applications/Microsoft Outlook.app/Contents/SharedSupport/Proofing Tools/FinnishGrammar.proofingtool/Contents/SharedSupport/FinnishGrammar.lexicon/Contents/Resources/DataFile.lex
 107.3 MB  /Applications/Microsoft Word.app/Contents/SharedSupport/Proofing Tools/FinnishGrammar.proofingtool/Contents/SharedSupport/FinnishGrammar.lexicon/Contents/Resources/DataFile.lex
@@ -59,7 +57,9 @@ Found 14.6 GB of usage in 190,955 files and 16,428 directories. Scanning took 2.
  81.3 MB  /Applications/Microsoft Word.app/Contents/SharedSupport/Open XML for Excel.app/Contents/MacOS/Open XML for Excel
  81.3 MB  /Applications/Microsoft PowerPoint.app/Contents/SharedSupport/Open XML for Excel.app/Contents/MacOS/Open XML for Excel
  73.1 MB  /Applications/Microsoft Word.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
+ 73.1 MB  /Applications/Microsoft Excel.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
  73.1 MB  /Applications/Microsoft Outlook.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
+ 73.1 MB  /Applications/Microsoft PowerPoint.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
 ```
 
 Usage examples with extra options:
