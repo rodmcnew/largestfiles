@@ -59,9 +59,9 @@ Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.03
 
 Usage examples with extra options:
 ```bash
-largestfiles -c=50 /Applications/ # Show 50 results
+largestfiles -c=50 /Applications # Show 50 results
 
-largestfiles -i /Applications/ # Ignore file system errors such as "permission denied" and keep going
+largestfiles -i /Applications # Ignore file system errors such as "permission denied" and keep going
 ```
 ## Installation
 How to install with latest go (v1.17.1 for example):
