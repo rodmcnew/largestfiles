@@ -31,44 +31,40 @@ type ScanResult struct {
 
 type OnScanProgressUpdate func(size float64, fileCount int, dirCount int)
 
+type walkMessage struct {
+	item *Item
+	err  error
+}
+
 // Scan the file system for the largest files and directories.
 //
 // Note: This code assumes that filepath.Walk() can call its callback in many concurrent goroutines even though this may not be true.
 //       This is to ensure future compatability with concurrent file system walkers, such as third party walkers.
 func ScanFileSys(options ScanOptions, onProgressUpdate OnScanProgressUpdate, progressUpdateInterval time.Duration) (*ScanResult, error) {
 	// This channel handles file system items as they are read by the walker and then stored in memory
-	itemsChan := make(chan Item, 1)
+	walkChan := make(chan walkMessage, 1)
 
-	// Handle file system items by dumping the item's data into the itemsChan channel.
-	readFileInfo := func(path string, info os.FileInfo, err error) error {
-		if err != nil {
-			if options.IgnoreFileSystemErrors {
-				log.Println(err)
-				return nil
-			} else {
-				return err
-			}
-		}
-		itemsChan <- Item{IsDir: info.IsDir(), Path: path, Size: info.Size()}
-		return nil
-	}
-
-	// Walk the file system
-	var walkError error = nil
+	// Walk the file system and put data into the walkChan so it can be processed
 	go func() {
-		err := filepath.Walk(options.Path, readFileInfo)
-		if err != nil {
-			if !options.IgnoreFileSystemErrors {
-				walkError = err
+		filepath.Walk(options.Path, func(path string, info os.FileInfo, err error) error {
+			if err != nil {
+				if options.IgnoreFileSystemErrors {
+					log.Println(err)
+					return nil
+				} else {
+					walkChan <- walkMessage{item: nil, err: err}
+					return err
+				}
 			}
-		}
-		close(itemsChan)
+			walkChan <- walkMessage{item: &Item{IsDir: info.IsDir(), Path: path, Size: info.Size()}, err: nil}
+			return nil
+		})
+		close(walkChan)
 	}()
 
-	files := make([]Item, 0)              // Stores a list of files
-	dirs := make([]Item, 0)               // Stores a list of directories
-	pathToDirIMap := make(map[string]int) // Used to quickly look up directories during size calculation
-	var totalSize float64 = 0             // Stores the total disk usage found
+	files := make([]Item, 0)  // Stores a list of files
+	dirs := make([]Item, 0)   // Stores a list of directories
+	var totalSize float64 = 0 // Stores the total disk usage found
 
 	// Start a ticker that will display our progress reading the filesystem every so often
 	progressDisplayTicker := time.NewTicker(progressUpdateInterval)
@@ -78,26 +74,30 @@ func ScanFileSys(options ScanOptions, onProgressUpdate OnScanProgressUpdate, pro
 		}
 	}()
 
+	// This is used to quickly look up directories during size calculation
+	pathToDirIdxMap := make(map[string]int)
+
 	// As the file path walker reads the file system, store the data it returns
-	for item := range itemsChan {
-		if item.IsDir {
-			dirs = append(dirs, item)
-			pathToDirIMap[item.Path] = len(dirs) - 1
+	for message := range walkChan {
+		if message.err == nil {
+			if message.item.IsDir {
+				dirs = append(dirs, *message.item)
+				pathToDirIdxMap[message.item.Path] = len(dirs) - 1
+			} else {
+				files = append(files, *message.item)
+				totalSize += float64(message.item.Size)
+			}
 		} else {
-			files = append(files, item)
-			totalSize += float64(item.Size)
+			return nil, message.err
 		}
 	}
-	if walkError != nil {
-		return nil, walkError
-	}
 
-	// We are done reading the filesystem so stop the display-progress ticker
+	// We are done reading the filesystem so stop the progress display ticker
 	progressDisplayTicker.Stop()
 
 	// For each file, add its size to its parent directory
 	for _, item := range files {
-		dir := &dirs[pathToDirIMap[filepath.Dir(item.Path)]]
+		dir := &dirs[pathToDirIdxMap[filepath.Dir(item.Path)]]
 		dir.Size += item.Size
 		dir.ChildCount++
 	}
