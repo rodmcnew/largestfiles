@@ -62,7 +62,7 @@ largestfiles -c=50 /Applications/ # Show 50 results
 
 largestfiles -i /Applications/ # Ignore file system errors such as "permission denied" and keep going
 ```
-## Instalation
+## Installation
 How to install with latest go (v1.17.1 for example):
 ```bash
 go install github.com/rodmcnew/largestfiles/cmd/largestfiles@latest
