@@ -8,6 +8,7 @@ import (
 	"github.com/rodmcnew/largestfiles/pkg/largestfiles"
 )
 
+// Controls how many files and directories we display when the user doesn't set this with a CLI arg
 const defaultDisplayCount = 20
 
 func cliArgsToOptions() largestfiles.ScanOptions {
