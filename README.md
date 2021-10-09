@@ -1,11 +1,16 @@
 This is a CLI program that displays the largest files and directories on your file system. This is written in Golang.
+
 ## Usage
+
 Usage example:
+
 ```bash
 # Display large files and directories inside the /Applications directory
 largestfiles /Applications
 ```
+
 Output example:
+
 ```
 Looking in /Applications
 Found 14.6 GB of usage in 190,955 files and 16,428 directories. Scanning took 2.224s
@@ -55,15 +60,20 @@ Found 14.6 GB of usage in 190,955 files and 16,428 directories. Scanning took 2.
  81.3 MB  /Applications/Microsoft PowerPoint.app/Contents/SharedSupport/Open XML for Excel.app/Contents/MacOS/Open XML for Excel
  73.1 MB  /Applications/Microsoft Word.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
  73.1 MB  /Applications/Microsoft Outlook.app/Contents/Frameworks/mso99.framework/Versions/A/mso99
- ```
+```
 
 Usage examples with extra options:
-```bash
-largestfiles -c=50 /Applications # Show 50 results
 
-largestfiles -i /Applications # Ignore file system errors such as "permission denied" and keep going
+```bash
+# Show 50 results
+largestfiles -c=50 /Applications
+
+# Ignore file system errors such as "permission denied" and keep going
+largestfiles -i /Applications
 ```
+
 ## Installation
+
 ```bash
 go install github.com/rodmcnew/largestfiles/cmd/largestfiles@latest
 ```
