@@ -1,4 +1,4 @@
-This is a CLI program that displays the largest files and directories on your file system.
+This is a CLI program that displays the largest files and directories on your file system. This is written in Golang.
 ## Usage
 Usage example:
 ```bash
