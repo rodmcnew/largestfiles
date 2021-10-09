@@ -8,7 +8,7 @@ largestfiles /Applications
 Output example:
 ```
 Looking in /Applications
-Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.032s
+Found 14.6 GB of usage in 190,955 files and 16,428 directories. Scanning took 2.224s
 
 - - - - - - - - - - Largest Directories - - - - - - - - - -
     Size  Files  Path
