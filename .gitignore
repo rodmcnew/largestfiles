@@ -1,4 +1,4 @@
-/largestfiles
+cmd/largestfiles/largestfiles
 
 # Mac OS X files
 .DS_Store
