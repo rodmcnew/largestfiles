@@ -78,17 +78,17 @@ func ScanFileSys(options ScanOptions, onProgressUpdate OnScanProgressUpdate, pro
 	pathToDirIdxMap := make(map[string]int)
 
 	// As the file path walker reads the file system, store the data it returns
-	for message := range walkChan {
-		if message.err == nil {
-			if message.item.IsDir {
-				dirs = append(dirs, *message.item)
-				pathToDirIdxMap[message.item.Path] = len(dirs) - 1
+	for msg := range walkChan {
+		if msg.err == nil {
+			if msg.item.IsDir {
+				dirs = append(dirs, *msg.item)
+				pathToDirIdxMap[msg.item.Path] = len(dirs) - 1
 			} else {
-				files = append(files, *message.item)
-				totalSize += float64(message.item.Size)
+				files = append(files, *msg.item)
+				totalSize += float64(msg.item.Size)
 			}
 		} else {
-			return nil, message.err
+			return nil, msg.err
 		}
 	}
 
