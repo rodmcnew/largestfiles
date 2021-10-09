@@ -3,11 +3,11 @@ This is a CLI program that displays the largest files and directories on your fi
 Usage example:
 ```bash
 # Look for large files and directories inside the /Applications/ directory
-largestfiles /Applications/
+largestfiles /Applications
 ```
 Output example:
 ```
-Looking in /Applications/
+Looking in /Applications
 Found 14.6 GB of usage in 190955 files and 16428 directories. Scanning took 8.032s
 
 - - - - - - - - - - Largest Directories - - - - - - - - - -
