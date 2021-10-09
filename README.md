@@ -2,6 +2,7 @@ This is a CLI program that displays the largest files and directories on your fi
 ## Usage
 Usage example:
 ```bash
+# Look for large files and directories inside the /Applications/ directory
 largestfiles /Applications/
 ```
 Output example:
