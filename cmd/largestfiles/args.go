@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"os"
 	"strings"
 
@@ -19,6 +20,14 @@ func cliArgsToOptions() largestfiles.ScanOptions {
 			path = arg
 			break
 		}
+	}
+
+	flag.Usage = func() {
+		fmt.Fprintf(flag.CommandLine.Output(), "Usage: largestfiles [directory to scan]\n")
+
+		flag.VisitAll(func(f *flag.Flag) {
+			fmt.Fprintf(flag.CommandLine.Output(), " -%s %s\n", f.Name, f.Usage)
+		})
 	}
 
 	// Parse CLI flag args
